@@ -7,6 +7,7 @@ import pusher
 
 from google.appengine.ext import webapp
 
+
 try:
   import config
 except ImportError:
@@ -32,7 +33,7 @@ class MainHandler(webapp.RequestHandler):
         else:
             p['private-talk'].trigger('down_event',event_data)
         
-        logging.info(guid + ":" + dest_state + ":" + now + ":" + machine_name + ":" + user_name + ":" + full_name)
+        logging.info(guid + "::" + dest_state + ":" + now + ":" + machine_name + ":" + user_name + ":" + full_name)
 
 app = webapp.WSGIApplication([('/', MainHandler)],
                                          debug=True)
